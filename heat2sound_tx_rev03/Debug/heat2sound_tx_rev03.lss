@@ -1,0 +1,333 @@
+
+heat2sound_tx_rev03.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .data         00000000  00800100  00800100  000001a4  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  1 .text         00000150  00000000  00000000  00000054  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  2 .comment      00000030  00000000  00000000  000001a4  2**0
+                  CONTENTS, READONLY
+  3 .note.gnu.avr.deviceinfo 00000040  00000000  00000000  000001d4  2**2
+                  CONTENTS, READONLY
+  4 .debug_aranges 000000b0  00000000  00000000  00000218  2**3
+                  CONTENTS, READONLY, DEBUGGING
+  5 .debug_info   00000c68  00000000  00000000  000002c8  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_abbrev 0000082f  00000000  00000000  00000f30  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_line   00000519  00000000  00000000  0000175f  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_frame  000000c4  00000000  00000000  00001c78  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_str    000004da  00000000  00000000  00001d3c  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_loc    0000013c  00000000  00000000  00002216  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_ranges 00000050  00000000  00000000  00002352  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	0c 94 34 00 	jmp	0x68	; 0x68 <__ctors_end>
+   4:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+   8:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+   c:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  10:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  14:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  18:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  1c:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  20:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  24:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  28:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  2c:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  30:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  34:	0c 94 43 00 	jmp	0x86	; 0x86 <__vector_13>
+  38:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  3c:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  40:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  44:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  48:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  4c:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  50:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  54:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  58:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  5c:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  60:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  64:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+
+00000068 <__ctors_end>:
+  68:	11 24       	eor	r1, r1
+  6a:	1f be       	out	0x3f, r1	; 63
+  6c:	cf ef       	ldi	r28, 0xFF	; 255
+  6e:	d8 e0       	ldi	r29, 0x08	; 8
+  70:	de bf       	out	0x3e, r29	; 62
+  72:	cd bf       	out	0x3d, r28	; 61
+  74:	0e 94 5b 00 	call	0xb6	; 0xb6 <main>
+  78:	0c 94 a6 00 	jmp	0x14c	; 0x14c <_exit>
+
+0000007c <__bad_interrupt>:
+  7c:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
+
+00000080 <atmel_start_init>:
+/**
+ * Initializes MCU, drivers and middleware in the project
+ **/
+void atmel_start_init(void)
+{
+	system_init();
+  80:	0e 94 68 00 	call	0xd0	; 0xd0 <system_init>
+  84:	08 95       	ret
+
+00000086 <__vector_13>:
+
+
+//ISR (TIMER1_COMPA_vect) //Timer1 ISR
+
+ISR (TIMER1_OVF_vect) //Timer1 ISR
+{
+  86:	1f 92       	push	r1
+  88:	0f 92       	push	r0
+  8a:	0f b6       	in	r0, 0x3f	; 63
+  8c:	0f 92       	push	r0
+  8e:	11 24       	eor	r1, r1
+  90:	8f 93       	push	r24
+  92:	9f 93       	push	r25
+	//clock is 16Mhz/256=250,000hz
+	//for 440hz 250,000/440=568.18
+	PORTB ^= (1 << LED);
+  94:	95 b1       	in	r25, 0x05	; 5
+  96:	81 e0       	ldi	r24, 0x01	; 1
+  98:	89 27       	eor	r24, r25
+  9a:	85 b9       	out	0x05, r24	; 5
+	TCNT1 = 568; //for 440hz
+  9c:	88 e3       	ldi	r24, 0x38	; 56
+  9e:	92 e0       	ldi	r25, 0x02	; 2
+  a0:	90 93 85 00 	sts	0x0085, r25	; 0x800085 <__TEXT_REGION_LENGTH__+0x7f8085>
+  a4:	80 93 84 00 	sts	0x0084, r24	; 0x800084 <__TEXT_REGION_LENGTH__+0x7f8084>
+	
+}
+  a8:	9f 91       	pop	r25
+  aa:	8f 91       	pop	r24
+  ac:	0f 90       	pop	r0
+  ae:	0f be       	out	0x3f, r0	; 63
+  b0:	0f 90       	pop	r0
+  b2:	1f 90       	pop	r1
+  b4:	18 95       	reti
+
+000000b6 <main>:
+
+int main(void)
+{
+	/* Initializes MCU, drivers and middleware */
+	atmel_start_init();
+  b6:	0e 94 40 00 	call	0x80	; 0x80 <atmel_start_init>
+
+	TCNT1 = 568; //for 440hz
+  ba:	88 e3       	ldi	r24, 0x38	; 56
+  bc:	92 e0       	ldi	r25, 0x02	; 2
+  be:	90 93 85 00 	sts	0x0085, r25	; 0x800085 <__TEXT_REGION_LENGTH__+0x7f8085>
+  c2:	80 93 84 00 	sts	0x0084, r24	; 0x800084 <__TEXT_REGION_LENGTH__+0x7f8084>
+	//TCCR1B |= (0 << CS12) | (0 << CS11) | (1 << CS10); /* no prescaling */
+	//TIMSK1 = (1 << TOIE1); //enable timer1 overflow interrupt (TOIE1)
+	//TIMSK1 = (1 << OCIE1A); //enable timer1 output compare interrupt
+	//OCR1A = 1;//
+
+	sei(); //Enable global interrupts by setting global interrupt enable
+  c6:	78 94       	sei
+  c8:	ff cf       	rjmp	.-2      	; 0xc8 <main+0x12>
+
+000000ca <TIMER_0_initialization>:
+#include <system.h>
+
+void TIMER_0_initialization(void)
+{
+
+	TIMER_0_init();
+  ca:	0e 94 99 00 	call	0x132	; 0x132 <TIMER_0_init>
+  ce:	08 95       	ret
+
+000000d0 <system_init>:
+{
+	/* On AVR devices all peripherals are enabled from power on reset, this
+	 * disables all peripherals to save power. Driver shall enable
+	 * peripheral if used */
+
+	PRR = (1 << PRSPI) | (1 << PRTIM2) | (1 << PRTIM0) | (1 << PRTIM1) | (1 << PRTWI) | (1 << PRUSART0) | (1 << PRADC);
+  d0:	8f ee       	ldi	r24, 0xEF	; 239
+  d2:	80 93 64 00 	sts	0x0064, r24	; 0x800064 <__TEXT_REGION_LENGTH__+0x7f8064>
+		break;
+	case PORT_DIR_OUT:
+		DDRB |= mask;
+		break;
+	case PORT_DIR_OFF:
+		DDRB &= ~mask;
+  d6:	84 b1       	in	r24, 0x04	; 4
+  d8:	14 b8       	out	0x04, r1	; 4
+
+		PORTB |= mask;
+  da:	85 b1       	in	r24, 0x05	; 5
+  dc:	9f ef       	ldi	r25, 0xFF	; 255
+  de:	95 b9       	out	0x05, r25	; 5
+		break;
+	case PORT_DIR_OUT:
+		DDRC |= mask;
+		break;
+	case PORT_DIR_OFF:
+		DDRC &= ~mask;
+  e0:	87 b1       	in	r24, 0x07	; 7
+  e2:	80 78       	andi	r24, 0x80	; 128
+  e4:	87 b9       	out	0x07, r24	; 7
+
+		PORTC |= mask;
+  e6:	88 b1       	in	r24, 0x08	; 8
+  e8:	8f 67       	ori	r24, 0x7F	; 127
+  ea:	88 b9       	out	0x08, r24	; 8
+		break;
+	case PORT_DIR_OUT:
+		DDRD |= mask;
+		break;
+	case PORT_DIR_OFF:
+		DDRD &= ~mask;
+  ec:	8a b1       	in	r24, 0x0a	; 10
+  ee:	1a b8       	out	0x0a, r1	; 10
+
+		PORTD |= mask;
+  f0:	8b b1       	in	r24, 0x0b	; 11
+  f2:	9b b9       	out	0x0b, r25	; 11
+	switch (direction) {
+	case PORT_DIR_IN:
+		DDRB &= ~(1 << pin);
+		break;
+	case PORT_DIR_OUT:
+		DDRB |= 1 << pin;
+  f4:	84 b1       	in	r24, 0x04	; 4
+  f6:	81 60       	ori	r24, 0x01	; 1
+  f8:	84 b9       	out	0x04, r24	; 4
+static inline void PORTB_set_pin_level(const uint8_t pin, const bool level)
+{
+	if (level) {
+		PORTB |= 1 << pin;
+	} else {
+		PORTB &= ~(1 << pin);
+  fa:	85 b1       	in	r24, 0x05	; 5
+  fc:	8e 7f       	andi	r24, 0xFE	; 254
+  fe:	85 b9       	out	0x05, r24	; 5
+	switch (direction) {
+	case PORT_DIR_IN:
+		DDRB &= ~(1 << pin);
+		break;
+	case PORT_DIR_OUT:
+		DDRB |= 1 << pin;
+ 100:	84 b1       	in	r24, 0x04	; 4
+ 102:	82 60       	ori	r24, 0x02	; 2
+ 104:	84 b9       	out	0x04, r24	; 4
+static inline void PORTB_set_pin_level(const uint8_t pin, const bool level)
+{
+	if (level) {
+		PORTB |= 1 << pin;
+	} else {
+		PORTB &= ~(1 << pin);
+ 106:	85 b1       	in	r24, 0x05	; 5
+ 108:	8d 7f       	andi	r24, 0xFD	; 253
+ 10a:	85 b9       	out	0x05, r24	; 5
+ * \return Initialization status.
+ */
+static inline int8_t sysctrl_init()
+{
+	/* Set up system clock prescaler according to configuration */
+	protected_write_io((void *)&CLKPR, 1 << CLKPCE, (0 << CLKPS3) | (0 << CLKPS2) | (0 << CLKPS1) | (0 << CLKPS0));
+ 10c:	40 e0       	ldi	r20, 0x00	; 0
+ 10e:	60 e8       	ldi	r22, 0x80	; 128
+ 110:	81 e6       	ldi	r24, 0x61	; 97
+ 112:	90 e0       	ldi	r25, 0x00	; 0
+ 114:	0e 94 92 00 	call	0x124	; 0x124 <protected_write_io>
+
+	SMCR = (0 << SM2) | (0 << SM1) | (0 << SM0) | // Idle
+ 118:	13 be       	out	0x33, r1	; 51
+	       (0 << SE);
+
+	MCUCR = (0 << PUD);
+ 11a:	15 be       	out	0x35, r1	; 53
+
+	ENABLE_INTERRUPTS();
+ 11c:	78 94       	sei
+	    // <true"> High
+	    false);
+
+	sysctrl_init();
+
+	TIMER_0_initialization();
+ 11e:	0e 94 65 00 	call	0xca	; 0xca <TIMER_0_initialization>
+ 122:	08 95       	ret
+
+00000124 <protected_write_io>:
+#if defined(__GNUC__)
+	/*
+	 * We need to disable interrupts globally before the protected
+	 * sequence. In order to do that we must save SREG first.
+	 */
+	in      r18,    _SFR_IO_ADDR(SREG)
+ 124:	2f b7       	in	r18, 0x3f	; 63
+	cli
+ 126:	f8 94       	cli
+  
+#ifdef RAMPZ
+	out     _SFR_IO_ADDR(RAMPZ), r1         // Clear bits 23:16 of Z
+#endif
+	movw    r30, r24                // Load addr into Z
+ 128:	fc 01       	movw	r30, r24
+	st      Z, r22                  // Write protection bit to I/O register
+ 12a:	60 83       	st	Z, r22
+	st      Z, r20                  // Write value to I/O register
+ 12c:	40 83       	st	Z, r20
+	out     _SFR_IO_ADDR(SREG), r18
+ 12e:	2f bf       	out	0x3f, r18	; 63
+
+	ret                             // Return to caller
+ 130:	08 95       	ret
+
+00000132 <TIMER_0_init>:
+ */
+int8_t TIMER_0_init()
+{
+
+	/* Enable TC1 */
+	PRR &= ~(1 << PRTIM1);
+ 132:	e4 e6       	ldi	r30, 0x64	; 100
+ 134:	f0 e0       	ldi	r31, 0x00	; 0
+ 136:	80 81       	ld	r24, Z
+ 138:	87 7f       	andi	r24, 0xF7	; 247
+ 13a:	80 83       	st	Z, r24
+
+	// TCCR1A = (0 << COM1A1) | (0 << COM1A0) /* Normal port operation, OCA disconnected */
+	//		 | (0 << COM1B1) | (0 << COM1B0) /* Normal port operation, OCB disconnected */
+	//		 | (0 << WGM11) | (0 << WGM10); /* TC16 Mode 0 Normal */
+
+	TCCR1B = (0 << WGM13) | (0 << WGM12)                /* TC16 Mode 0 Normal */
+ 13c:	84 e0       	ldi	r24, 0x04	; 4
+ 13e:	80 93 81 00 	sts	0x0081, r24	; 0x800081 <__TEXT_REGION_LENGTH__+0x7f8081>
+
+	// GTCCR = 0 << TSM /* Timer/Counter Synchronization Mode: disabled */
+	//		 | 0 << PSRASY /* Prescaler Reset Timer/Counter2: disabled */
+	//		 | 0 << PSRSYNC; /* Prescaler Reset: disabled */
+
+	TIMSK1 = 0 << OCIE1B   /* Output Compare B Match Interrupt Enable: disabled */
+ 142:	81 e0       	ldi	r24, 0x01	; 1
+ 144:	80 93 6f 00 	sts	0x006F, r24	; 0x80006f <__TEXT_REGION_LENGTH__+0x7f806f>
+	         | 0 << OCIE1A /* Output Compare A Match Interrupt Enable: disabled */
+	         | 0 << ICIE1  /* Input Capture Interrupt Enable: disabled */
+	         | 1 << TOIE1; /* Overflow Interrupt Enable: enabled */
+
+	return 0;
+}
+ 148:	80 e0       	ldi	r24, 0x00	; 0
+ 14a:	08 95       	ret
+
+0000014c <_exit>:
+ 14c:	f8 94       	cli
+
+0000014e <__stop_program>:
+ 14e:	ff cf       	rjmp	.-2      	; 0x14e <__stop_program>
