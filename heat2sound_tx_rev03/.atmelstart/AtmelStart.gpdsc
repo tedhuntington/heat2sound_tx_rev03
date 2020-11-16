@@ -37,7 +37,7 @@
       <description>Atmel Start Framework</description>
       <RTE_Components_h>#define ATMEL_START</RTE_Components_h>
       <files>
-        <file category="doc" condition="ARMCC, GCC, IAR" name="modules/timer/doc/tc16.rst"/>
+        <file category="doc" condition="ARMCC, GCC, IAR" name="modules/timer/doc/tc8.rst"/>
         <file category="source" condition="ARMCC, GCC, IAR" name="main.c"/>
         <file category="source" condition="ARMCC, GCC, IAR" name="src/driver_init.c"/>
         <file category="header" condition="ARMCC, GCC, IAR" name="include/driver_init.h"/>
@@ -52,9 +52,9 @@
         <file category="header" condition="ARMCC, GCC, IAR" name="include/protected_io.h"/>
         <file category="header" condition="ARMCC, GCC, IAR" name="include/sysctrl.h"/>
         <file category="header" condition="ARMCC, GCC, IAR" name="include/system.h"/>
-        <file category="header" condition="ARMCC, GCC, IAR" name="include/tc16.h"/>
+        <file category="header" condition="ARMCC, GCC, IAR" name="include/tc8.h"/>
         <file category="source" condition="ARMCC, GCC, IAR" name="src/protected_io.S"/>
-        <file category="source" condition="ARMCC, GCC, IAR" name="src/tc16.c"/>
+        <file category="source" condition="ARMCC, GCC, IAR" name="src/tc8.c"/>
         <file category="header" condition="ARMCC, GCC, IAR" name="utils/assembler.h"/>
         <file category="header" condition="ARMCC, GCC, IAR" name="utils/assembler/gas.h"/>
         <file category="header" condition="ARMCC, GCC, IAR" name="utils/assembler/iar.h"/>

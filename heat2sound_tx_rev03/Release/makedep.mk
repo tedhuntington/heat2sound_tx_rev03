@@ -12,5 +12,5 @@ src\driver_init.c
 
 src\protected_io.S
 
-src\tc8.c
+src\tc16.c
 

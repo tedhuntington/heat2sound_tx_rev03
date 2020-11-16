@@ -1,7 +1,7 @@
 ======================
-TC16 driver
+TC8 driver
 ======================
-A 16-bit Timer/Counter is a general purpose Timer/Counter module, with two independent Output
+A 8-bit Timer/Counter is a general purpose Timer/Counter module, with two independent Output
 Compare Units, and PWM support. It allows accurate program execution timing (event management) and
 wave generation.
 

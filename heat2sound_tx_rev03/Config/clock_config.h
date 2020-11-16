@@ -7,12 +7,12 @@
 #ifndef F_CPU
 #define F_CPU 16000000
 #endif
-// <h> TC1 Clock Settings
-// <y> TC1 Clock source
+// <h> TC0 Clock Settings
+// <y> TC0 Clock source
 // <CLKio"> CLKio
-// <i> This defines the clock source for the TC1 module
-// <id> tc16_clock_source
-#define CONF_TC1_SRC CLKio
+// <i> This defines the clock source for the TC0 module
+// <id> tc8_clock_source
+#define CONF_TC0_SRC CLKio
 
 // </h>
 

@@ -1,7 +1,7 @@
 /**
  * \file
  *
- * \brief TC16 related functionality declaration.
+ * \brief TC8 related functionality declaration.
  (c) 2020 Microchip Technology Inc. and its subsidiaries.
 
     Subject to your compliance with these terms,you may use this software and
@@ -23,8 +23,8 @@
     THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS SOFTWARE.
  */
 
-#ifndef TC16_H_INCLUDED
-#define TC16_H_INCLUDED
+#ifndef TC8_H_INCLUDED
+#define TC8_H_INCLUDED
 
 #include <compiler.h>
 
@@ -38,4 +38,4 @@ int8_t TIMER_0_init();
 }
 #endif
 
-#endif /* TC16_H_INCLUDED */
+#endif /* TC8_H_INCLUDED */

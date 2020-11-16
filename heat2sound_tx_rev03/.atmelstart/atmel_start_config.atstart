@@ -64,38 +64,46 @@ drivers:
         configuration: {}
   TIMER_0:
     user_label: TIMER_0
-    definition: Atmel:ATMega48_88_168_328_drivers:1.0.0::ATmega328P-AU::TC1::driver_config_definition::TC16.Mode.0.Normal::Drivers:TC16:Init
+    definition: Atmel:ATMega48_88_168_328_drivers:1.0.0::ATmega328P-AU::TC0::driver_config_definition::TC8.Mode.0.Normal::Drivers:TC8:Init
     functionality: Timer
-    api: Drivers:TC16:Init
+    api: Drivers:TC8:Init
     configuration:
       inc_isr_harness: false
-      tc16_coma: Normal port operation, OCA disconnected
-      tc16_comb: Normal port operation, OCB disconnected
-      tc16_cs: IO clock divided by 256
-      tc16_ices: Falling edge will trigger input capture
-      tc16_icie: false
-      tc16_icnc: false
-      tc16_icr: 0
-      tc16_ociea: false
-      tc16_ocieb: false
-      tc16_orca: 0
-      tc16_orcb: 0
-      tc16_psrasy: false
-      tc16_psrsync: false
-      tc16_toie: true
-      tc16_tsm: false
+      tc8_coma: Normal port operation, OCA disconnected
+      tc8_comb: Normal port operation, OCB disconnected
+      tc8_cs: IO clock divided by 64
+      tc8_ociea: false
+      tc8_ocieb: false
+      tc8_ocra: 0
+      tc8_ocrb: 0
+      tc8_psrasy: false
+      tc8_psrsync: false
+      tc8_toie: true
+      tc8_tsm: false
     optional_signals: []
     variant: null
     clocks:
       domain_group:
         nodes:
-        - name: TC16
+        - name: TC8
           input: CLKio
           external: false
           external_frequency: 0
         configuration:
-          tc16_clock_source: CLKio
+          tc8_clock_source: CLKio
 pads:
+  PB6:
+    name: PB6
+    definition: Atmel:ATMega48_88_168_328_drivers:1.0.0::ATmega328P-AU::pad::PB6
+    mode: Digital input
+    user_label: PB6
+    configuration: null
+  PB7:
+    name: PB7
+    definition: Atmel:ATMega48_88_168_328_drivers:1.0.0::ATmega328P-AU::pad::PB7
+    mode: Digital output
+    user_label: PB7
+    configuration: null
   PB0:
     name: PB0
     definition: Atmel:ATMega48_88_168_328_drivers:1.0.0::ATmega328P-AU::pad::PB0

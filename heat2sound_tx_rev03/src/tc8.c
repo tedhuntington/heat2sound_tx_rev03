@@ -1,7 +1,7 @@
 /**
  * \file
  *
- * \brief TC16 related functionality implementation.
+ * \brief TC8 related functionality implementation.
  (c) 2020 Microchip Technology Inc. and its subsidiaries.
 
     Subject to your compliance with these terms,you may use this software and
@@ -24,14 +24,14 @@
  */
 
 /**
- * \addtogroup doc_driver_tc16
+ * \addtogroup doc_driver_tc8
  *
- * \section doc_driver_tc16_rev Revision History
+ * \section doc_driver_tc8_rev Revision History
  * - v0.0.0.1 Initial Commit
  *
  *@{
  */
-#include <tc16.h>
+#include <tc8.h>
 #include <utils.h>
 
 /**
@@ -42,32 +42,27 @@
 int8_t TIMER_0_init()
 {
 
-	/* Enable TC1 */
-	PRR &= ~(1 << PRTIM1);
+	/* Enable TC0 */
+	PRR &= ~(1 << PRTIM0);
 
-	// TCCR1A = (0 << COM1A1) | (0 << COM1A0) /* Normal port operation, OCA disconnected */
-	//		 | (0 << COM1B1) | (0 << COM1B0) /* Normal port operation, OCB disconnected */
-	//		 | (0 << WGM11) | (0 << WGM10); /* TC16 Mode 0 Normal */
+	// TCCR0A = (0 << COM0A1) | (0 << COM0A0) /* Normal port operation, OCA disconnected */
+	//		 | (0 << COM0B1) | (0 << COM0B0) /* Normal port operation, OCB disconnected */
+	//		 | (0 << WGM01) | (0 << WGM00); /* TC8 Mode 0 Normal */
 
-	TCCR1B = (0 << WGM13) | (0 << WGM12)                /* TC16 Mode 0 Normal */
-	         | 0 << ICNC1                               /* Input Capture Noise Canceler: disabled */
-	         | 0 << ICES1                               /* Input Capture Edge Select: disabled */
-	         | (1 << CS12) | (0 << CS11) | (0 << CS10); /* IO clock divided by 256 */
+	TCCR0B = 0                                          /* TC8 Mode 0 Normal */
+	         | (0 << CS02) | (1 << CS01) | (1 << CS00); /* IO clock divided by 64 */
 
-	// ICR1 = 0x0; /* Input capture value, used as top counter value in some modes: 0x0 */
+	TIMSK0 = 0 << OCIE0B   /* Output Compare B Match Interrupt Enable: disabled */
+	         | 0 << OCIE0A /* Output Compare A Match Interrupt Enable: disabled */
+	         | 1 << TOIE0; /* Overflow Interrupt Enable: enabled */
 
-	// OCR1A = 0x0; /* Output compare A: 0x0 */
+	// OCR0A = 0x0; /* Output compare A: 0x0 */
 
-	// OCR1B = 0x0; /* Output compare B: 0x0 */
+	// OCR0B = 0x0; /* Output compare B: 0x0 */
 
 	// GTCCR = 0 << TSM /* Timer/Counter Synchronization Mode: disabled */
 	//		 | 0 << PSRASY /* Prescaler Reset Timer/Counter2: disabled */
 	//		 | 0 << PSRSYNC; /* Prescaler Reset: disabled */
-
-	TIMSK1 = 0 << OCIE1B   /* Output Compare B Match Interrupt Enable: disabled */
-	         | 0 << OCIE1A /* Output Compare A Match Interrupt Enable: disabled */
-	         | 0 << ICIE1  /* Input Capture Interrupt Enable: disabled */
-	         | 1 << TOIE1; /* Overflow Interrupt Enable: enabled */
 
 	return 0;
 }

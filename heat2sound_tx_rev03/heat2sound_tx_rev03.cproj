@@ -52,17 +52,17 @@
         </TopLevelComponents>
         <AcmeActionInfos>
           <AcmeProjectActionInfo Action="File" Source="main.c" IsConfig="false" Hash="k0AH7j+BrmdFhBPzCCMptA" />
-          <AcmeProjectActionInfo Action="File" Source="src/driver_init.c" IsConfig="false" Hash="Q5NhSrt2or0r0kRVyhj7RQ" />
-          <AcmeProjectActionInfo Action="File" Source="include/driver_init.h" IsConfig="false" Hash="h29Gl5P/RWBQl5dRKxni1A" />
-          <AcmeProjectActionInfo Action="File" Source="include/atmel_start_pins.h" IsConfig="false" Hash="LX6t7UNbgOvsY3OIFnbf5w" />
+          <AcmeProjectActionInfo Action="File" Source="src/driver_init.c" IsConfig="false" Hash="nwNqGqF2bGAeBTqqcHXu2g" />
+          <AcmeProjectActionInfo Action="File" Source="include/driver_init.h" IsConfig="false" Hash="Fz3bA6voufd0Nas7ZEvvsQ" />
+          <AcmeProjectActionInfo Action="File" Source="include/atmel_start_pins.h" IsConfig="false" Hash="idFYdADbsWXu4Wlq6JGLMQ" />
           <AcmeProjectActionInfo Action="File" Source="driver_isr.c" IsConfig="false" Hash="MvMMK2GhxVFkAQcdYQz48Q" />
           <AcmeProjectActionInfo Action="File" Source="include/port.h" IsConfig="false" Hash="Ab/mKSjZoOmjYx1gPkyl3Q" />
           <AcmeProjectActionInfo Action="File" Source="include/protected_io.h" IsConfig="false" Hash="kBH1k8wuaJhV5U4694Cbvg" />
           <AcmeProjectActionInfo Action="File" Source="include/sysctrl.h" IsConfig="false" Hash="bYIrzPUpClym3OPf5ZvMsQ" />
           <AcmeProjectActionInfo Action="File" Source="include/system.h" IsConfig="false" Hash="4fBPTmYwVu0ZCGkBTBL/Kw" />
-          <AcmeProjectActionInfo Action="File" Source="include/tc16.h" IsConfig="false" Hash="ewD2Bu6irrmH93bbsXEopA" />
+          <AcmeProjectActionInfo Action="File" Source="include/tc8.h" IsConfig="false" Hash="k4XlZr9DyK/buEUSrRXsTQ" />
           <AcmeProjectActionInfo Action="File" Source="src/protected_io.S" IsConfig="false" Hash="sTkan98Jx/L5evUxlZFkAA" />
-          <AcmeProjectActionInfo Action="File" Source="src/tc16.c" IsConfig="false" Hash="xXXlXWsjlPZMnRGOguTJKw" />
+          <AcmeProjectActionInfo Action="File" Source="src/tc8.c" IsConfig="false" Hash="6OqMnd7uABBZfErC2xaHpQ" />
           <AcmeProjectActionInfo Action="File" Source="utils/assembler.h" IsConfig="false" Hash="jaaWqpCXnRJMciuXpjSfgQ" />
           <AcmeProjectActionInfo Action="File" Source="utils/assembler/gas.h" IsConfig="false" Hash="wV+34zXWOOJ7jfwQibBgLQ" />
           <AcmeProjectActionInfo Action="File" Source="utils/assembler/iar.h" IsConfig="false" Hash="re7qP3QC0FK72z2UZ4UoFg" />
@@ -73,7 +73,7 @@
           <AcmeProjectActionInfo Action="File" Source="utils/utils_assert.h" IsConfig="false" Hash="lJZG/QWOeOnUhe4wcXVztA" />
           <AcmeProjectActionInfo Action="File" Source="atmel_start.h" IsConfig="false" Hash="ZPe6iT3s4OihW8t8wDF53g" />
           <AcmeProjectActionInfo Action="File" Source="atmel_start.c" IsConfig="false" Hash="1RHIE7zTtYK4DURNPUqF9w" />
-          <AcmeProjectActionInfo Action="File" Source="config/clock_config.h" IsConfig="true" Hash="snnnVpOCz+zIR1PQS2J7zw" />
+          <AcmeProjectActionInfo Action="File" Source="config/clock_config.h" IsConfig="true" Hash="6n/NXju4iVEBxpqsAENbHQ" />
         </AcmeActionInfos>
         <NonsecureFilesInfo />
       </AcmeProjectConfig>
@@ -94,6 +94,28 @@
     </com_atmel_avrdbg_tool_atmelice>
     <avrtoolinterface>debugWIRE</avrtoolinterface>
     <avrtoolinterfaceclock>125000</avrtoolinterfaceclock>
+    <custom>
+      <ToolOptions xmlns="">
+        <InterfaceProperties>
+        </InterfaceProperties>
+        <InterfaceName>debugWIRE</InterfaceName>
+      </ToolOptions>
+      <ToolType xmlns="">custom</ToolType>
+      <ToolNumber xmlns="">
+      </ToolNumber>
+      <ToolName xmlns="">Custom Programming Tool</ToolName>
+    </custom>
+    <com_atmel_avrdbg_tool_simulator>
+      <ToolOptions xmlns="">
+        <InterfaceProperties>
+        </InterfaceProperties>
+        <InterfaceName>debugWIRE</InterfaceName>
+      </ToolOptions>
+      <ToolType xmlns="">com.atmel.avrdbg.tool.simulator</ToolType>
+      <ToolNumber xmlns="">
+      </ToolNumber>
+      <ToolName xmlns="">Simulator</ToolName>
+    </com_atmel_avrdbg_tool_simulator>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
     <ToolchainSettings>
@@ -241,7 +263,7 @@
     <Compile Include="include\system.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="include\tc16.h">
+    <Compile Include="include\tc8.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="main.c">
@@ -253,7 +275,7 @@
     <Compile Include="src\protected_io.S">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="src\tc16.c">
+    <Compile Include="src\tc8.c">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="utils\assembler.h">
@@ -297,7 +319,7 @@
     <None Include="doxygen\timer.dox">
       <SubType>compile</SubType>
     </None>
-    <None Include="modules\timer\doc\tc16.rst">
+    <None Include="modules\timer\doc\tc8.rst">
       <SubType>compile</SubType>
     </None>
   </ItemGroup>

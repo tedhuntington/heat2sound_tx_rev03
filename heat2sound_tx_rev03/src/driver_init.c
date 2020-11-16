@@ -73,6 +73,30 @@ void system_init()
 	    // <true"> High
 	    false);
 
+	/* PORT setting on PB6 */
+
+	// Set pin direction to input
+	PB6_set_dir(PORT_DIR_IN);
+
+	PB6_set_pull_mode(
+	    // <y> Pull configuration
+	    // <id> pad_pull_config
+	    // <PORT_PULL_OFF"> Off
+	    // <PORT_PULL_UP"> Pull-up
+	    PORT_PULL_OFF);
+
+	/* PORT setting on PB7 */
+
+	// Set pin direction to output
+	PB7_set_dir(PORT_DIR_OUT);
+
+	PB7_set_level(
+	    // <y> Initial level
+	    // <id> pad_initial_level
+	    // <false"> Low
+	    // <true"> High
+	    false);
+
 	sysctrl_init();
 
 	TIMER_0_initialization();

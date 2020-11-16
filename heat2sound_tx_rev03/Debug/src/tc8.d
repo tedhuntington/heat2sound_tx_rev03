@@ -1,5 +1,4 @@
-driver_isr.d driver_isr.o: .././driver_isr.c ../include/driver_init.h \
- ../utils/compiler.h \
+src/tc8.d src/tc8.o: ../src/tc8.c ../include/tc8.h ../utils/compiler.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\io.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\sfr_defs.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\inttypes.h \
@@ -17,12 +16,9 @@ driver_isr.d driver_isr.o: .././driver_isr.c ../include/driver_init.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\stdlib.h \
  ../utils/interrupt_avr8.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\interrupt.h \
- ../Config/clock_config.h ../include/port.h ../include/atmel_start_pins.h \
- ../include/sysctrl.h ../utils/atomic.h ../include/protected_io.h \
- c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\sleep.h \
- ../include/tc8.h
+ ../utils/utils.h
 
-../include/driver_init.h:
+../include/tc8.h:
 
 ../utils/compiler.h:
 
@@ -60,18 +56,4 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\interrupt.h:
 
-../Config/clock_config.h:
-
-../include/port.h:
-
-../include/atmel_start_pins.h:
-
-../include/sysctrl.h:
-
-../utils/atomic.h:
-
-../include/protected_io.h:
-
-c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\sleep.h:
-
-../include/tc8.h:
+../utils/utils.h:
